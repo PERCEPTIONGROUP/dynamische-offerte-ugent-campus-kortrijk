@@ -73,6 +73,7 @@ section + section{border-top:1px solid var(--line)}
 .rates{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.75rem 2rem}
 .rates > div{display:flex;flex-direction:column;gap:.2rem}
 .rates .num{font-size:1.75rem;font-weight:600;letter-spacing:-.03em;color:var(--blue)}
+.rates .num small{font-size:.46em;font-weight:500;letter-spacing:0;color:var(--ink-3);white-space:nowrap}
 .rates .lbl{font-size:.95rem;font-weight:500}
 .rates .fine{font-size:.85rem;color:var(--ink-2);line-height:1.45}
 .note{margin-top:1.75rem;font-size:.9rem;color:var(--ink-2);max-width:74ch;line-height:1.6}
@@ -133,7 +134,7 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
 input[type=range]:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 
 .ctrl-sub{
-  display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+  display:flex;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;align-items:baseline;
   padding-top:.6rem;border-top:1px solid var(--line-2);
   font-size:.85rem;color:var(--ink-2);
 }
@@ -231,12 +232,13 @@ table.bd tr.tot td{border-top:1px solid var(--ink);border-bottom:none;font-weigh
 </header>
 
 <section class="wrap">
-  <div class="sec-head"><h2>Tarieven</h2></div>
+  <div class="sec-head"><h2>Tarieven</h2>
+    <p>Alle bedragen in deze offerte zijn exclusief btw. De btw van 21 % staat apart vermeld in de kostenraming onderaan.</p></div>
   <div class="rates">
-    <div><span class="num">€ 750</span><span class="lbl">Volledige draaidag</span><span class="fine">Inclusief materiaal zoals camera, audio en licht, plus datahandling en online back-up van de opnames.</span></div>
-    <div><span class="num">€ 450</span><span class="lbl">Halve draaidag</span><span class="fine">Zelfde materiaal en afhandeling, kortere opnameblok.</span></div>
-    <div><span class="num">€ 55</span><span class="lbl">Per uur postproductie</span><span class="fine">Montage, kleur, geluid, ondertiteling, revisie. Inclusief portretrechten en de rechten op de gebruikte muziek, voor alle kanalen.</span></div>
-    <div><span class="num">€ 200</span><span class="lbl">Projectkost bij opstart</span><span class="fine">Eenmalig, voor de administratieve en juridische afhandeling</span></div>
+    <div><span class="num">€ 750 <small>excl. btw</small></span><span class="lbl">Volledige draaidag</span><span class="fine">Inclusief materiaal zoals camera, audio en licht, plus datahandling en online back-up van de opnames.</span></div>
+    <div><span class="num">€ 450 <small>excl. btw</small></span><span class="lbl">Halve draaidag</span><span class="fine">Zelfde materiaal en afhandeling, kortere opnameblok.</span></div>
+    <div><span class="num">€ 55 <small>excl. btw</small></span><span class="lbl">Per uur postproductie</span><span class="fine">Montage, kleur, geluid, ondertiteling, revisie. Inclusief portretrechten en de rechten op de gebruikte muziek, voor alle kanalen.</span></div>
+    <div><span class="num">€ 200 <small>excl. btw</small></span><span class="lbl">Projectkost bij opstart</span><span class="fine">Eenmalig, voor de administratieve en juridische afhandeling</span></div>
   </div>
   <p class="note">Materiaal, audio, verwerking van de beelden en online opslag zitten in de dagprijs. De projectkost wordt eenmalig bij opstart aangerekend en dekt de juridische afhandeling, de GDPR- en toestemmingsformulieren en het doorsturen van het ruwe beeldmateriaal. De back-up van de opnames zelf zit al in de dagprijs. Portretrecht en toestemmingen worden door mij geregeld, met een gebruiksrecht van vijf jaar voor UGent. Eén montagedag staat gelijk aan acht uur.</p>
 </section>
@@ -468,7 +470,7 @@ const luiken = document.getElementById("luiken");
           '" step="' + f.uren.step + '" value="' + f.uren.def + '" data-k="u" data-f="' + f.id +
           '" aria-label="Montage-uren voor ' + f.title + '">' +
         '</div>' +
-        '<div class="ctrl-sub"><span id="dd-' + f.id + '">&nbsp;</span><b id="m-' + f.id + '">&nbsp;</b></div>' +
+        '<div class="ctrl-sub"><span id="dd-' + f.id + '">&nbsp;</span><span>Subtotaal <b id="m-' + f.id + '">&nbsp;</b> excl. btw</span></div>' +
       '</div>';
     rows.appendChild(row);
   });
